@@ -2,10 +2,8 @@ var mongoskin = require('mongoskin');
 var json2xls = require('json2xls');
 var _ = require('lodash');
 var moment = require('moment');
-var fs = require('fs'); //mda-staging-test-23feb   --web_02Feb2017
-//{ mongoskin.db('mongodb://127.0.0.1:27017/mda-staging-test-23feb', {
+var fs = require('fs');
 var db = mongoskin.db('mongodb://127.0.0.1:27017/mda-staging-11jan', {
-// var db = mongoskin.db('mongodb://mda-preval:B3p3rf3cta_x2y@52.24.57.147:27017/mda-preval', {
   native_parser: true,
   'auto_reconnect': true,
   'poolSize': 1000,
