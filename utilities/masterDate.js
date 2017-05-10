@@ -1,9 +1,8 @@
 var mongoskin = require('mongoskin');
-var json2xls = require('json2xls');
-var _ = require('lodash');
+var json2xls = require('json2xls');var _ = require('lodash');
 var fs = require('fs');
 var q = require('q')
-var db = mongoskin.db('mongodb://127.0.0.1:27017/mda-staging-11jan', {
+var db = mongoskin.db('mongodb://mda-staging:B3p3rf3cta_x2y@52.24.57.147/mda-staging', {
   native_parser: true,
   'auto_reconnect': true,
   'poolSize': 1000,
@@ -13,6 +12,7 @@ var db = mongoskin.db('mongodb://127.0.0.1:27017/mda-staging-11jan', {
     socketTimeoutMS: 0
   }
 });
+
 var result = [];
 
 function test() {
