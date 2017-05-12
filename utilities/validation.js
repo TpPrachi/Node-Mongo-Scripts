@@ -340,6 +340,7 @@ function flateData() {
     var xls = json2xls(result);
 
     fs.writeFileSync('data.xlsx', xls, 'binary');
+    console.log("Validation Created Successfully!");
     //    downloadCSV();
   });
 
