@@ -52,7 +52,7 @@ test().then(function (getType) {
               var ObjResult = {};
               data = "";
               parser(c,q);
-              ObjResult['Schema Title'] = s.title;
+              ObjResult['App Title'] = s.title;
               ObjResult['Procedure Title'] = p.title;
               ObjResult['Question Title'] = q.title;
               ObjResult['Acceptance Criteria'] = data;
@@ -145,7 +145,7 @@ function parser(criteria, question) {
     // Go for build advance acceptance criteria statement
     if (index == "condition") {
       if (_.isUndefined(condition.conditions) && condition.length > 0) {
-        data = data + "Advance Acceptnace Criteria \n";
+        data = data + "Advanced Acceptnace Criteria \n";
         // Loop through all conditions provided for Advance acceptance criteria
         _.forEach(condition, function (obj, i) {
           if (_.isUndefined(obj.conditions)) {
@@ -172,7 +172,12 @@ function parser(criteria, question) {
     }
     // Go for build Standard acceptance criteria statement
     if (index == "criteria") {
-      data = data + "\nStandard Acceptance Criteria \n";
+      if(criteria["condition"].length == 0) {
+          data = data + "\nStandard Acceptance Criteria \n";
+      } else {
+        data = data + "\nThen Acceptance Criteria for ";
+      }
+
       data = data + " " + question.title;
       data = data + " " + getStringEquivalent(condition.condition);
       //Value as per format
