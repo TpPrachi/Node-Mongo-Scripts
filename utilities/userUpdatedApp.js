@@ -20,7 +20,7 @@ var ObjResult = {};
 
 function getApp() {
   var deferred = q.defer();
-  db.collection("schema").find({title:"CANTO As Needed"}).toArray(function (error, apps) {
+  db.collection("schema").find({}).toArray(function (error, apps) {
     deferred.resolve(apps)
   });
   return deferred.promise;
