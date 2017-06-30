@@ -16,6 +16,9 @@ var db = mongoskin.db('mongodb://mda-preval:B3p3rf3cta_x2y@52.24.57.147/mda-prev
 });
 // Entity Title : Reagent Master
 // _id : 585ad6087e588f04245a0d64
+
+//Get All the app name contains Reagent Master entity
+
 var getApp = [];
 db.collection("schema").find({}, { entities: 1, title: 1, isActive:1 }).toArray(function (error, apps) {
   _.forEach(apps, function(app) {

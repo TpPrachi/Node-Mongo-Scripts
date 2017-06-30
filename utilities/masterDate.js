@@ -2,7 +2,7 @@ var mongoskin = require('mongoskin');
 var json2xls = require('json2xls');var _ = require('lodash');
 var fs = require('fs');
 var q = require('q')
-var db = mongoskin.db('mongodb://mda-staging:B3p3rf3cta_x2y@52.24.57.147/mda-staging', {
+var db = mongoskin.db('mongodb://mda-preval:B3p3rf3cta_x2y@52.24.57.147/mda-preval', {
   native_parser: true,
   'auto_reconnect': true,
   'poolSize': 1000,
@@ -12,6 +12,8 @@ var db = mongoskin.db('mongodb://mda-staging:B3p3rf3cta_x2y@52.24.57.147/mda-sta
     socketTimeoutMS: 0
   }
 });
+
+//Get Master App and All user App in That Master App (Detail)
 
 var result = [];
 
@@ -25,7 +27,7 @@ function test() {
 
 test().then(function(schema) {
   var master = db.collection("masterqcsettings")
-  .find({},{ schema:1,title:1 });
+  .find({isActive:true},{ schema:1,title:1 });
   master.forEach(function(t){
     t.schema.forEach(function(e){
       var ObjResult = {};
@@ -39,7 +41,7 @@ test().then(function(schema) {
       result.push(ObjResult);
     });
     var xls = json2xls(result);
-    fs.writeFileSync('master.xlsx', xls, 'binary');
+    fs.writeFileSync('Active_MasterApp.xlsx', xls, 'binary');
     console.log("Created Successfully");
   });
 });

@@ -15,6 +15,9 @@ var db = mongoskin.db('mongodb://mda-staging:B3p3rf3cta_x2y@52.24.57.147:27017/m
   }
 });
 
+// App -- Having Roles and That Roles User Count in apps
+// Actual User Count of that perticular Role
+
 var result = [];
 var ObjResult = {};
 
