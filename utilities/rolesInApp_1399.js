@@ -29,7 +29,7 @@ getApp().then(function(apps) {
   _.forEach(apps, function(app) {
     _.forEach(app.workflowreview, function(review) {
       ObjResult['App Title'] = app.title;
-      ObjResult['Roles'] = (review.roles.join(" | "));
+      ObjResult['Roles'] = (review.roles.join(", "));
       console.log(ObjResult);
     });
   });
